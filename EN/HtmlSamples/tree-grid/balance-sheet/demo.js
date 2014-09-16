@@ -2,7 +2,7 @@ $(function () {
 
             var dataSource = [
                 {
-                    "number": "1000", "name": "assets", "balance": "", "assets": [
+                    "number": "1000", "name": "Assets", "balance": "", "assets": [
                         {
                             "number": "1003", "name": "Fixed assets", "balance": "", "assets": [
                                 {
@@ -30,7 +30,7 @@ $(function () {
                         {
                             "number": "2000", "name": "Current assets", "balance": "", "assets": [
                                 {
-                                    "number": "1115", "name": "Inventory", "balance": "", "assets": [
+                                    "number": "1125", "name": "Inventory", "balance": "", "assets": [
                                         { "number": "1120", "name": "Resale Items", "balance": "$507,215.13" },
                                         { "number": "1130", "name": "Finished Goods", "balance": "$135,842.95" },
                                         { "number": "1140", "name": "Raw Material", "balance": "$497,898.10" },
@@ -54,16 +54,16 @@ $(function () {
                     { headerText: "Name", key: "name", width: "250px", dataType: "string" },
                     { headerText: "Balance", key: "balance", width: "100px", dataType: "string" }
                 ],
-                // tree grid specific options
                 dataSourceLayoutKey: "assets",
-                renderExpandColumn: true,
-
-                initialExpandDepth: 3,
+                initialExpandDepth: 2,
                 features: [
                     {
                         name: "Updating",
                         enableAddRow: false
                     }
-                ]
+                ],
+                rendered: function (evt, ui) {
+                    ui.owner.element.igTreeGrid("toggleRowById", 1115);
+                }
             });
         });
